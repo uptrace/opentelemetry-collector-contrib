@@ -1,0 +1,18 @@
+receivers:
+  examplereceiver:
+
+processors:
+  exampleprocessor:
+
+exporters:
+  uptrace:
+  uptrace/customname:
+    dsn: "https://key@api.uptrace.dev/1"
+    max_batch_size: 4999
+
+service:
+  pipelines:
+    traces:
+      receivers: [examplereceiver]
+      processors: [exampleprocessor]
+      exporters: [uptrace]
